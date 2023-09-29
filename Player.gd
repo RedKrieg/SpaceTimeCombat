@@ -4,9 +4,9 @@ extends CharacterBody2D
 @onready var player_size = $ShipCollision.shape.get_rect().size
 
 
-var max_speed = 1000
-var input_scaler = 2000
-var friction_scaler = 0.95
+var max_speed = 2000
+var input_scaler = 5000
+var friction_scaler = 0.9
 
 func _ready():
 	player_size = Vector2(player_size.y, player_size.x) # need to fix this when we get ship collision to not be stupid

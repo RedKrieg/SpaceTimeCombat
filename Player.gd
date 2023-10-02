@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
+@export var max_speed = 2000.0
+@export var input_scaler = 5000.0
+@export var friction_scaler = 0.9
+
 @onready var screen_size = get_viewport_rect().size
 @onready var player_half_size = get_bounds($ShipCollision)/2
-
-var max_speed = 2000
-var input_scaler = 5000
-var friction_scaler = 0.9
 
 func _ready():
 	pass

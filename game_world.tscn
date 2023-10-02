@@ -1,28 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwf0cpd4ja4cx"]
+[gd_scene load_steps=9 format=3 uid="uid://bwf0cpd4ja4cx"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_n3w1y"]
 [ext_resource type="Texture2D" uid="uid://dp3c15l7x5hlo" path="res://Art/ShipSide256w.png" id="2_xs2jh"]
 [ext_resource type="Texture2D" uid="uid://chofnuf76401f" path="res://Art/Backgrounds/Space/far.png" id="3_8g80y"]
-[ext_resource type="Script" path="res://ConstantMovingBackground.gd" id="3_wjir6"]
+[ext_resource type="Script" path="res://BackgroundScroller.gd" id="3_f16su"]
 [ext_resource type="Texture2D" uid="uid://d3hhn6w0oahho" path="res://Art/Backgrounds/Space/back.png" id="4_74vwl"]
+[ext_resource type="Script" path="res://FPS.gd" id="6_4oltp"]
+[ext_resource type="FontFile" uid="uid://c08eqit1m4ime" path="res://Art/Fonts/RabbidHighwaySignExtendedItalic-1MR2.otf" id="6_b11lu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5j6cs"]
+resource_name = "FutureSpaceFont"
+font = ExtResource("6_b11lu")
+font_color = Color(0, 1, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
 
 [node name="GameWorld" type="Node2D"]
 
-[node name="PlayerShip" type="CharacterBody2D" parent="."]
-position = Vector2(284, 282)
-motion_mode = 1
-script = ExtResource("1_n3w1y")
-
-[node name="ShipSide256w" type="Sprite2D" parent="PlayerShip"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xs2jh")
-
-[node name="ShipCollision" type="CollisionPolygon2D" parent="PlayerShip"]
-polygon = PackedVector2Array(-45, -18, 63, 3, -20, 18)
-
 [node name="SpaceBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
-script = ExtResource("3_wjir6")
+script = ExtResource("3_f16su")
+scroll_speed = Vector2(1550, 0)
 
 [node name="Back" type="ParallaxLayer" parent="SpaceBackground"]
 texture_repeat = 3
@@ -60,3 +59,23 @@ motion_mirroring = Vector2(3840, 2160)
 [node name="Near" type="Sprite2D" parent="SpaceBackground/Near"]
 position = Vector2(596, 304)
 texture = ExtResource("3_8g80y")
+
+[node name="PlayerShip" type="CharacterBody2D" parent="."]
+position = Vector2(284, 282)
+motion_mode = 1
+script = ExtResource("1_n3w1y")
+
+[node name="ShipSide256w" type="Sprite2D" parent="PlayerShip"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xs2jh")
+
+[node name="ShipCollision" type="CollisionPolygon2D" parent="PlayerShip"]
+polygon = PackedVector2Array(-45, -18, 63, 3, -20, 18)
+
+[node name="FPS" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+text = "0 FPS"
+label_settings = SubResource("LabelSettings_5j6cs")
+script = ExtResource("6_4oltp")

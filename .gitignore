@@ -2,3 +2,7 @@
 .godot/
 Builds/
 addons/
+*.svg
+*.png
+*.xcf
+*.otf

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var max_speed = 2000.0
 @export var input_scaler = 5000.0
 @export var rotation_time_scaler = 100.0
-@export var rotation_angle_scaler = 1.6
+@export var rotation_angle_scaler = 0.5
 @export var friction_scaler = 0.9
 
 @onready var screen_size = get_viewport_rect().size
@@ -33,19 +33,15 @@ func _physics_process(delta):
 	if position.y != new_position.y:
 		velocity.y = 0.0
 		position.y = new_position.y
-	rotation = lerp(rotation, velocity.y/max_speed/rotation_angle_scaler, delta*rotation_time_scaler)
+	rotation = velocity.y / max_speed * rotation_angle_scaler
 	move_and_slide()
 
 func get_bounds(collision: CollisionPolygon2D):
 	var lower = Vector2.INF
 	var upper = -Vector2.INF
 	for p in collision.polygon:
-		if p.x < lower.x:
-			lower.x = p.x
-		if p.y < lower.y:
-			lower.y = p.y
-		if p.x > upper.x:
-			upper.x = p.x
-		if p.y > upper.y:
-			upper.y = p.y
+		lower.x = min(lower.x, p.x)
+		lower.y = min(lower.y, p.y)
+		upper.x = max(upper.x, p.x)
+		upper.y = max(upper.y, p.y)
 	return upper - lower

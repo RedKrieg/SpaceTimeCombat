@@ -21,7 +21,6 @@ shadow_size = 4
 [node name="SpaceBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 script = ExtResource("3_f16su")
-scroll_speed = Vector2(1550, 0)
 
 [node name="Back" type="ParallaxLayer" parent="SpaceBackground"]
 texture_repeat = 3

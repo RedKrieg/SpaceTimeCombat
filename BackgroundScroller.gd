@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-@export var scroll_speed := Vector2(1200.0, 0.0)
+@export var scroll_speed := Vector2(1550.0, 0.0)
 @onready var player_ship := $"../PlayerShip"
 
 # Called when the node enters the scene tree for the first time.

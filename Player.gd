@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var max_speed = 2000.0
 @export var input_scaler = 5000.0
+@export var rotation_time_scaler = 100.0
+@export var rotation_angle_scaler = 1.6
 @export var friction_scaler = 0.9
 
 @onready var screen_size = get_viewport_rect().size
@@ -11,11 +13,16 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	# handle input
 	var movement_vector = Input.get_vector("left", "right", "up", "down")
 	velocity += movement_vector * input_scaler * delta
 	velocity *= friction_scaler
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
+	if Input.is_action_just_pressed("fire_primary"):
+		# fire projectile
+		print(player_half_size)
+	# keep player on screen
 	var new_position = Vector2(
 		clamp(position.x, player_half_size.x, screen_size.x-player_half_size.x),
 		clamp(position.y, player_half_size.y, screen_size.y-player_half_size.y)
@@ -26,9 +33,7 @@ func _physics_process(delta):
 	if position.y != new_position.y:
 		velocity.y = 0.0
 		position.y = new_position.y
-	if Input.is_action_just_pressed("fire_primary"):
-		# fire projectile
-		print(player_half_size)
+	rotation = lerp(rotation, velocity.y/max_speed/rotation_angle_scaler, delta*rotation_time_scaler)
 	move_and_slide()
 
 func get_bounds(collision: CollisionPolygon2D):

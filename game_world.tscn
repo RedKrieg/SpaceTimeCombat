@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwf0cpd4ja4cx"]
+[gd_scene load_steps=9 format=3 uid="uid://bwf0cpd4ja4cx"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_n3w1y"]
 [ext_resource type="Texture2D" uid="uid://dp3c15l7x5hlo" path="res://Art/ShipSide256w.png" id="2_xs2jh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hhn6w0oahho" path="res://Art/Backgrounds/Space/back.png" id="4_74vwl"]
 [ext_resource type="Script" path="res://FPS.gd" id="6_4oltp"]
 [ext_resource type="LabelSettings" uid="uid://bvd180cmepfiu" path="res://AssetScenes/space_font_label.tres" id="6_33o2h"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="6_auv4h"]
 
 [node name="GameWorld" type="Node2D"]
 
@@ -69,6 +70,15 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1000.0
 offset_bottom = 100.0
+
+[node name="Virtual Joystick" parent="UI" instance=ExtResource("6_auv4h")]
+layout_mode = 1
+pressed_color = Color(0.529412, 0.529412, 0.529412, 0.705882)
+visibility_mode = 1
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"
 
 [node name="FPS" type="Label" parent="UI"]
 layout_mode = 0

@@ -92,7 +92,7 @@ grow_vertical = 0
 
 [node name="BoostLabel" type="Label" parent="UI/BoostContainer"]
 layout_mode = 2
-text = "Boost:"
+text = "Boost-"
 label_settings = ExtResource("6_33o2h")
 
 [node name="BoostBar" type="ProgressBar" parent="UI/BoostContainer"]

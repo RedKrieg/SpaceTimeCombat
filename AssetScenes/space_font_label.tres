@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bvd180cmepfiu"]
+
+[ext_resource type="FontFile" uid="uid://c08eqit1m4ime" path="res://Art/Fonts/RabbidHighwaySignExtendedItalic-1MR2.otf" id="1_h2eqh"]
+
+[resource]
+resource_name = "FutureSpaceFont"
+font = ExtResource("1_h2eqh")
+font_color = Color(0, 1, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var base_max_speed:float = 750.0
-@export var boost_max_speed:float = 1000.0
+@export var base_max_speed:float = 900.0
+@export var boost_max_speed:float = 1200.0
 @export var base_acceleration:float = 5000.0
 @export var boost_acceleration:float = 8000.0
 @export var boost_burn_per_second:float = 50.0
@@ -42,7 +42,7 @@ func _physics_process(delta):
 	if velocity.length() > max_speed:
 		# lerp current speed to max speed, allows going over max but smooths
 		# the sudden deceleration when you release boost
-		velocity = velocity.normalized() * lerp(velocity.length(), max_speed, 0.5)
+		velocity = velocity.normalized() * lerp(velocity.length(), max_speed, 0.4)
 		#velocity = velocity.normalized() * max_speed
 	# keep player on screen
 	var new_position = Vector2(

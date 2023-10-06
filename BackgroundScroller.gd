@@ -6,13 +6,13 @@ extends ParallaxBackground
 var star_scene = preload("res://AssetScenes/star.tscn")
 var rng = RandomNumberGenerator.new()
 var star_color_palette = PackedColorArray([
-	Color.from_string("#afc9ff", Color.BLACK),
-	Color.from_string("#c7d8ff", Color.BLACK),
-	Color.from_string("#fff4f3", Color.BLACK),
-	Color.from_string("#ffe5cf", Color.BLACK),
-	Color.from_string("#ffd9b2", Color.BLACK),
-	Color.from_string("#ffc78e", Color.BLACK),
-	Color.from_string("#ffa651", Color.BLACK)
+	Color.from_string("#afc9ff", Color.WHITE),
+	Color.from_string("#c7d8ff", Color.WHITE),
+	Color.from_string("#fff4f3", Color.WHITE),
+	Color.from_string("#ffe5cf", Color.WHITE),
+	Color.from_string("#ffd9b2", Color.WHITE),
+	Color.from_string("#ffc78e", Color.WHITE),
+	Color.from_string("#ffa651", Color.WHITE)
 ])
 
 # Called when the node enters the scene tree for the first time.

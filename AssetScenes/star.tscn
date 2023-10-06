@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://csfp8mbfn0rv5"]
 
-[ext_resource type="Texture2D" uid="uid://b6fp3t0qbjnnt" path="res://Art/Backgrounds/Space/star.svg" id="1_sqwy3"]
+[ext_resource type="Texture2D" uid="uid://c1pgw3d3otkq6" path="res://Art/Backgrounds/Space/star.png" id="1_8kcse"]
 [ext_resource type="Script" path="res://AssetScenes/star.gd" id="2_nbswg"]
 
 [node name="Star" type="Sprite2D"]
-texture = ExtResource("1_sqwy3")
+texture = ExtResource("1_8kcse")
 script = ExtResource("2_nbswg")

@@ -13,11 +13,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func _on_value_changed(value):
+func _on_value_changed(new_value):
 	for v in color_map:
-		if value <= v:
+		if new_value <= v:
 			self_modulate = color_map[v]

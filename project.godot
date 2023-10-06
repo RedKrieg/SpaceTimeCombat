@@ -15,10 +15,6 @@ run/main_scene="res://game_world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.png"
 
-[autoload]
-
-Spawning="*res://addons/BulletUpHell/Spawning.tscn"
-
 [display]
 
 window/size/viewport_width=1920
@@ -28,7 +24,7 @@ window/vsync/vsync_mode=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/BulletUpHell/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

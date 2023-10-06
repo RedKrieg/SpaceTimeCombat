@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var base_max_speed:float = 900.0
-@export var boost_max_speed:float = 1200.0
+@export var base_max_speed:float = 1000.0
+@export var boost_max_speed:float = 1500.0
 @export var base_acceleration:float = 5000.0
 @export var boost_acceleration:float = 8000.0
 @export var boost_burn_per_second:float = 50.0

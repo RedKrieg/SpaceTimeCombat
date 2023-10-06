@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwf0cpd4ja4cx"]
+[gd_scene load_steps=13 format=3 uid="uid://bwf0cpd4ja4cx"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_n3w1y"]
 [ext_resource type="Texture2D" uid="uid://bg10050hsurgl" path="res://Art/Backgrounds/Space/SerpentNebula.jpeg" id="2_51iuc"]
@@ -9,10 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="6_auv4h"]
 [ext_resource type="FontFile" uid="uid://c08eqit1m4ime" path="res://Art/Fonts/RabbidHighwaySignExtendedItalic-1MR2.otf" id="9_kxayx"]
 [ext_resource type="Script" path="res://BoostBar.gd" id="9_lbsk1"]
+[ext_resource type="Texture2D" uid="uid://b35rkfjxxewh0" path="res://Art/Buttons/boost.png" id="10_s3t8y"]
 
 [sub_resource type="Theme" id="Theme_fea6k"]
 default_font = ExtResource("9_kxayx")
 default_font_size = 12
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8r12"]
+radius = 128.0
 
 [node name="GameWorld" type="Node2D"]
 
@@ -130,5 +134,12 @@ value = 50.0
 rounded = true
 show_percentage = false
 script = ExtResource("9_lbsk1")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI"]
+position = Vector2(1573, 732)
+texture_normal = ExtResource("10_s3t8y")
+shape = SubResource("CircleShape2D_x8r12")
+action = "boost"
+visibility_mode = 1
 
 [connection signal="value_changed" from="UI/BoostContainer/BoostBar" to="UI/BoostContainer/BoostBar" method="_on_value_changed"]

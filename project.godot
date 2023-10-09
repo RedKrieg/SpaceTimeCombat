@@ -21,6 +21,8 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=2
+mouse_cursor/custom_image="res://Art/shittycrosshair.png"
+mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 
 [editor_plugins]
 

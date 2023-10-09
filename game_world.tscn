@@ -77,22 +77,22 @@ position = Vector2(284, 500)
 motion_mode = 1
 script = ExtResource("1_n3w1y")
 
-[node name="Bottom256Px" type="Sprite2D" parent="PlayerShip"]
-position = Vector2(1, 46)
-scale = Vector2(0.75, 0.75)
+[node name="Bottom" type="Sprite2D" parent="PlayerShip"]
+position = Vector2(1, 37)
+scale = Vector2(0.75, 0.5)
 texture = ExtResource("4_xkelg")
 
-[node name="Top256Px" type="Sprite2D" parent="PlayerShip"]
-position = Vector2(-3, -46)
-scale = Vector2(0.75, 0.75)
+[node name="Top" type="Sprite2D" parent="PlayerShip"]
+position = Vector2(-1, -35)
+scale = Vector2(0.75, 0.5)
 texture = ExtResource("5_n10ux")
 
-[node name="Cockpit64Px" type="Sprite2D" parent="PlayerShip"]
+[node name="Cockpit" type="Sprite2D" parent="PlayerShip"]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_2oyoo")
 
 [node name="ShipCollision" type="CollisionPolygon2D" parent="PlayerShip"]
-polygon = PackedVector2Array(-2, -89, 97, -6, 99, 8, -1, 87, -95, 8, -98, -6)
+polygon = PackedVector2Array(0, -63, 97, -9, 97, 12, 0, 63, -94, 11, -95, -9)
 
 [node name="UI" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -101,7 +101,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Virtual Joystick" parent="UI" instance=ExtResource("6_auv4h")]
+[node name="Movement Virtual Joystick" parent="UI" instance=ExtResource("6_auv4h")]
 layout_mode = 1
 offset_top = -438.0
 offset_right = 430.0
@@ -111,6 +111,23 @@ action_left = "left"
 action_right = "right"
 action_up = "up"
 action_down = "down"
+
+[node name="Aim Virtual Joystick" parent="UI" instance=ExtResource("6_auv4h")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -430.0
+offset_top = -430.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+pressed_color = Color(0.529412, 0.529412, 0.529412, 0.705882)
+visibility_mode = 1
+action_left = "aim_left"
+action_right = "aim_right"
+action_up = "aim_up"
+action_down = "aim_down"
 
 [node name="FPS" type="Label" parent="UI"]
 layout_mode = 0
@@ -148,8 +165,9 @@ rounded = true
 show_percentage = false
 script = ExtResource("9_lbsk1")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="UI"]
-position = Vector2(1573, 732)
+[node name="BoostButton" type="TouchScreenButton" parent="UI"]
+position = Vector2(1401, 872)
+scale = Vector2(0.667969, 0.667969)
 texture_normal = ExtResource("10_s3t8y")
 shape = SubResource("CircleShape2D_x8r12")
 action = "boost"

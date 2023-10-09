@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwf0cpd4ja4cx"]
+[gd_scene load_steps=15 format=3 uid="uid://bwf0cpd4ja4cx"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_n3w1y"]
 [ext_resource type="Texture2D" uid="uid://bg10050hsurgl" path="res://Art/Backgrounds/Space/SerpentNebula.jpeg" id="2_51iuc"]
-[ext_resource type="Texture2D" uid="uid://dp3c15l7x5hlo" path="res://Art/ShipSide256w.png" id="2_xs2jh"]
 [ext_resource type="Script" path="res://BackgroundScroller.gd" id="3_f16su"]
+[ext_resource type="Texture2D" uid="uid://mhsot75tly64" path="res://Art/Ship/Bottom_256px.png" id="4_xkelg"]
+[ext_resource type="Texture2D" uid="uid://dh5so7tg7tsxi" path="res://Art/Ship/Top_256px.png" id="5_n10ux"]
+[ext_resource type="Texture2D" uid="uid://xkvf17syy1jv" path="res://Art/Ship/Cockpit_64px.png" id="6_2oyoo"]
 [ext_resource type="Script" path="res://FPS.gd" id="6_4oltp"]
 [ext_resource type="LabelSettings" uid="uid://bvd180cmepfiu" path="res://AssetScenes/space_font_label.tres" id="6_33o2h"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="6_auv4h"]
@@ -75,11 +77,22 @@ position = Vector2(284, 500)
 motion_mode = 1
 script = ExtResource("1_n3w1y")
 
-[node name="ShipSide256w" type="Sprite2D" parent="PlayerShip"]
-texture = ExtResource("2_xs2jh")
+[node name="Bottom256Px" type="Sprite2D" parent="PlayerShip"]
+position = Vector2(1, 46)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_xkelg")
+
+[node name="Top256Px" type="Sprite2D" parent="PlayerShip"]
+position = Vector2(-3, -46)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_n10ux")
+
+[node name="Cockpit64Px" type="Sprite2D" parent="PlayerShip"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_2oyoo")
 
 [node name="ShipCollision" type="CollisionPolygon2D" parent="PlayerShip"]
-polygon = PackedVector2Array(-89, -36, 122, 5, -38, 34)
+polygon = PackedVector2Array(-2, -89, 97, -6, 99, 8, -1, 87, -95, 8, -98, -6)
 
 [node name="UI" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)

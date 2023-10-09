@@ -69,4 +69,7 @@ func overlaps(star, starfield):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scroll_offset -= (player_ship.velocity + scroll_speed) * delta 
+	var current_speed = scroll_speed
+	if player_ship.boosting:
+		current_speed *= 1.5
+	scroll_offset -= (player_ship.velocity + current_speed) * delta

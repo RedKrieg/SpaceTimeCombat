@@ -14,6 +14,9 @@ extends CharacterBody2D
 @onready var boost_value:float = 100.0
 @onready var boost_bar:ProgressBar = $"../UI/BoostContainer/BoostBar"
 
+# state machine vars
+@export var boosting:bool = false
+
 func _ready():
 	pass
 
@@ -26,10 +29,12 @@ func _physics_process(delta):
 		# fire projectile
 		print(boost_bar.value)
 	if Input.is_action_pressed("boost") and boost_value > boost_burn_per_second * delta:
+		boosting = true
 		acceleration = boost_acceleration
 		max_speed = boost_max_speed
 		boost_value -= boost_burn_per_second * delta
 	else:
+		boosting = false
 		# recharge boost
 		boost_value += boost_restore_per_second * delta
 	boost_value = clamp(boost_value, 0.0, 100.0)
